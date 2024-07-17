@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
+import background from "./background.jpg";
 import axios from "axios";
 
 function App() {
@@ -35,33 +36,29 @@ function App() {
     googleLogout();
     setProfile(null);
   };
+
+  const backgroundStyles = {
+    backgroundImage: `url(https://images.ctfassets.net/swt2dsco9mfe/2zTQfxWw5vduhqHMGVMJKT/9c64c2a3249356276293a36da4dbf5f0/2560x1600-terrain-wa.jpg)`,
+    // margin: "0px auto",
+    height: "100vh",
+    // width: "100vw",
+    // marginTop: "-70px",
+    // fontSize: "100px",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+};
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div style={backgroundStyles} className="App">
+      <header>
       </header>
-      <div>
+      <div style={{ paddingTop: "20px"}}>
         <h2>React Google Login</h2>
-        <br />
-        <br />
         {profile ? (
           <div>
             <img src={profile.picture} alt="user image" />
             <h3>User Logged in</h3>
             <p>Name: {profile.name}</p>
             <p>Email Address: {profile.email}</p>
-            <br />
-            <br />
             <button onClick={logOut}>Log out</button>
           </div>
         ) : (
