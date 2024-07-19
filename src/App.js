@@ -39,20 +39,15 @@ function App() {
 
   const backgroundStyles = {
     backgroundImage: `url(https://images.ctfassets.net/swt2dsco9mfe/2zTQfxWw5vduhqHMGVMJKT/9c64c2a3249356276293a36da4dbf5f0/2560x1600-terrain-wa.jpg)`,
-    // margin: "0px auto",
     height: "100vh",
-    // width: "100vw",
-    // marginTop: "-70px",
-    // fontSize: "100px",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-};
+  };
+
   return (
-    <div style={backgroundStyles} className="App">
-      <header>
-      </header>
-      <div style={{ paddingTop: "20px"}}>
-        <h2>React Google Login</h2>
+    <div style={backgroundStyles}>
+      <div style={{ paddingTop: "20px" }}>
+        {/* <h2>React Google Login</h2>
         {profile ? (
           <div>
             <img src={profile.picture} alt="user image" />
@@ -63,7 +58,18 @@ function App() {
           </div>
         ) : (
           <button onClick={login}>Sign in with Google 🚀 </button>
-        )}
+        )} */}
+      </div>
+      <div id="card">
+        <div id="card-content">
+          <div id="card-title">
+            <h2>READY TO BEGIN YOUR ADVENTURE?</h2>
+            <div class="underline-title"></div>
+          </div>
+            <button id="submit-btn" type="submit" name="submit" onClick={login}>
+              LOGIN WITH GMAIL
+            </button>
+        </div>
       </div>
     </div>
   );
