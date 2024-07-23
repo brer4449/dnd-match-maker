@@ -7,9 +7,13 @@ import axios from "axios";
 function App() {
   const [user, setUser] = useState([]);
   const [profile, setProfile] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const login = useGoogleLogin({
-    onSuccess: (codeResponse) => setUser(codeResponse),
+    onSuccess: (codeResponse) => {
+      setUser(codeResponse);
+      setIsLoggedIn(true);
+    },
     onError: (error) => console.log("Login Failed:", error),
   });
 
@@ -60,17 +64,25 @@ function App() {
           <button onClick={login}>Sign in with Google 🚀 </button>
         )} */}
       </div>
-      <div id="card">
-        <div id="card-content">
-          <div id="card-title">
-            <h2>READY TO BEGIN YOUR ADVENTURE?</h2>
-            <div class="underline-title"></div>
-          </div>
-            <button id="submit-btn" type="submit" name="submit" onClick={login}>
-              LOGIN WITH GMAIL
-            </button>
+      {isLoggedIn ? (
+        <div>
+        <h1>You're logged in</h1>
         </div>
-      </div>
+      ) : (
+        <div id="card">
+          <div id="card-content">
+            <div id="card-title">
+              <h2>READY TO BEGIN YOUR ADVENTURE?</h2>
+              <div class="underline-title"></div>
+            </div>
+              <button id="submit-btn" type="submit" name="submit" onClick={login}>
+                LOGIN WITH GMAIL
+              </button>
+          </div>
+        </div>
+      )
+      
+      }
     </div>
   );
 }
