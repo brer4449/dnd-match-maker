@@ -44,8 +44,12 @@ function App() {
   const backgroundStyles = {
     backgroundImage: `url(https://images.ctfassets.net/swt2dsco9mfe/2zTQfxWw5vduhqHMGVMJKT/9c64c2a3249356276293a36da4dbf5f0/2560x1600-terrain-wa.jpg)`,
     height: "100vh",
+    width: "auto",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   };
 
   return (
