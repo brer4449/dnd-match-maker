@@ -50,27 +50,23 @@ function App() {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    position: "relative",
+  };
+
+  const profileIconStyles = {
+    position: "absolute",
+    top: "20px",
+    right: "20px",
   };
 
   return (
     <div style={backgroundStyles}>
-      <div style={{ paddingTop: "20px" }}>
-        {/* <h2>React Google Login</h2>
-        {profile ? (
-          <div>
-            <img src={profile.picture} alt="user image" />
-            <h3>User Logged in</h3>
-            <p>Name: {profile.name}</p>
-            <p>Email Address: {profile.email}</p>
-            <button onClick={logOut}>Log out</button>
-          </div>
-        ) : (
-          <button onClick={login}>Sign in with Google 🚀 </button>
-        )} */}
+      <div style={profileIconStyles}>
+        {profile ? <img style={{ width: "40px", height: "40px", borderRadius: "50%"}} src={profile.picture} alt="user image" /> : ""}
       </div>
       {isLoggedIn ? (
         <div>
-        <h1>You're logged in</h1>
+          <h1>You're logged in</h1>
         </div>
       ) : (
         <div id="card">
@@ -79,14 +75,12 @@ function App() {
               <h2>READY TO BEGIN YOUR ADVENTURE?</h2>
               <div class="underline-title"></div>
             </div>
-              <button id="submit-btn" type="submit" name="submit" onClick={login}>
-                LOGIN WITH GMAIL
-              </button>
+            <button id="submit-btn" type="submit" name="submit" onClick={login}>
+              LOGIN WITH GMAIL
+            </button>
           </div>
         </div>
-      )
-      
-      }
+      )}
     </div>
   );
 }
